@@ -1,4 +1,5 @@
-function fadeIn() {
+export function fadeIn(a) {
+    console.log('hello' , a)
     //fade In
 }
 

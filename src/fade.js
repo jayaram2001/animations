@@ -1,0 +1,3 @@
+function fadeIn() {
+    //fade In
+}

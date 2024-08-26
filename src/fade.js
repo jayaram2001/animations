@@ -40,3 +40,7 @@ function fadeIn(element, duration, timingFunction) {
         animate();
     }
 }
+
+function fadeOut() {
+    //fade Out
+}

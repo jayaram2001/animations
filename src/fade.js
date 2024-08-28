@@ -1,15 +1,42 @@
 const element = document.querySelector('.box');
-const ease = (t) => t < 0.5 ? (4 * t * t * t) : ((t - 1) * (2 * t - 2) * (2 * t - 2) + 1); // ease
-const easeInQuad = (t) => t * t; // ease-in
-const easeOutQuad = (t) => t * (2 - t); // ease-out
-const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // ease-in-out
-
+const animationType = timingFunction1('ease-in-out');
 var duration = 3000;
 var delay = 3000; // Delay of 3 second
-fadeIn(element, duration, easeInOutQuad, delay);
+
+function timingFunction1(animationType, p1x, p1y, p2x, p2y) {
+    switch (animationType) {
+        case 'ease':
+            return (t) => t < 0.5 ? (4 * t * t * t) : ((t - 1) * (2 * t - 2) * (2 * t - 2) + 1);
+        case 'ease-in':
+            return (t) => t * t;
+        case 'ease-out':
+            return (t) => t * (2 - t);
+        case 'ease-in-out':
+            return (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        case 'cubicBezier':
+            return cubicBezier(0.5, p1x, p1y, p2x, p2y);
+    }
+}
+
+function cubicBezier(t, p1x, p1y, p2x, p2y) {
+    const cX = 3 * p1x,
+        bX = 3 * (p2x - p1x) - cX,
+        aX = 1 - cX - bX;
+
+    const cY = 3 * p1y,
+        bY = 3 * (p2y - p1y) - cY,
+        aY = 1 - cY - bY;
+
+    const x = ((aX * t + bX) * t + cX) * t;
+    const y = ((aY * t + bY) * t + cY) * t;
+
+    return y;
+}
+fadeIn(element, duration, animationType, delay);
 
 function fadeIn(element, duration, timingFunction, delay) {
     if (timingFunction) {
+        console.log('inisdde')
         let startTime = null;
         function animate(currentTime) {
             if (!startTime) startTime = currentTime;
@@ -33,33 +60,50 @@ function fadeIn(element, duration, timingFunction, delay) {
             }
         }
         requestAnimationFrame(animate); // Start the animation
-    } else {
-        // Fade In linear timing animation when timing function is not given
+    } 
+    else {
+        //fade In linear timing animation when timing function nor delay is not given
         let opacity = 0;
         const increment = 1 / (duration / 16.66); // 16.66ms per frame for 60fps
-
-        function animate(currentTime) {
-            if (!startTime) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-
-            // Wait until the delay is passed before starting the animation
-            if (elapsed < delay) {
-                requestAnimationFrame(animate);
-                return;
-            }
-
-            const adjustedElapsed = elapsed - delay;
-            opacity = Math.min(adjustedElapsed / duration, 1); // Calculate opacity based on elapsed time
+        function animate() {
+            opacity += increment;
             element.style.opacity = opacity;
-
+    
             if (opacity < 1) {
-                requestAnimationFrame(animate); // Continue animating
+                requestAnimationFrame(animate);
             } else {
-                element.style.opacity = 1; // Ensure it ends fully visible
+                element.style.opacity = 1;
             }
         }
-        requestAnimationFrame(animate); // Start the animation
+        animate();
     }
+    // else {
+    //     // Fade In linear timing animation when timing function is not given
+    //     let opacity = 0;
+    //     const increment = 1 / (duration / 16.66); // 16.66ms per frame for 60fps
+
+    //     function animate(currentTime) {
+    //         if (!startTime) startTime = currentTime;
+    //         const elapsed = currentTime - startTime;
+
+    //         // Wait until the delay is passed before starting the animation
+    //         if (elapsed < delay) {
+    //             requestAnimationFrame(animate);
+    //             return;
+    //         }
+
+    //         const adjustedElapsed = elapsed - delay;
+    //         opacity = Math.min(adjustedElapsed / duration, 1); // Calculate opacity based on elapsed time
+    //         element.style.opacity = opacity;
+
+    //         if (opacity < 1) {
+    //             requestAnimationFrame(animate); // Continue animating
+    //         } else {
+    //             element.style.opacity = 1; // Ensure it ends fully visible
+    //         }
+    //     }
+    //     requestAnimationFrame(animate); // Start the animation
+    // }
 }
 
 function fadeOut() {

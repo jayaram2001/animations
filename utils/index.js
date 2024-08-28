@@ -1,4 +1,4 @@
-import { fadein, fadeout } from "../src/animations.js";
+import { fadein, fadeout } from "../src/fade.js";
 
 var animationDetails = []
 const animations = {

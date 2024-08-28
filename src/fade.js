@@ -1,11 +1,14 @@
-
+import { generateOpacityValues } from "./cubic-bizer";
 
 export function fadeout(element , duration) {
+    let timing  = generateOpacityValues(0.000, 1.330, 1.000, 0.025);
+    console.log(timing[90])
     element.style.opacity = 1;
     let intervel = duration/100;    
+    let index = 0;
     const intervalID =  setInterval(() => {
-        console.log(element.style.opacity)
-        element.style.opacity = parseFloat(element.style.opacity) - 0.01;
+        index += 1;
+        element.style.opacity = parseFloat(element.style.opacity) - timing[index];
         if(element.style.opacity <= 0){
             clearInterval(intervalID)
         }    
@@ -55,3 +58,5 @@ function fadeIn(element, duration, timingFunction) {
         animate();
     }
 }
+
+

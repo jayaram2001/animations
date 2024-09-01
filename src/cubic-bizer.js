@@ -22,6 +22,5 @@ export function generateOpacityValues(p1x, p1y, p2x, p2y) {
         const easedValue = cubicBezier(t, p1x, p1y, p2x, p2y);
         values.push(easedValue);
     }
-
     return values;
 }

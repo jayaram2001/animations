@@ -1,8 +1,7 @@
-import { fadein, fadeout } from "../src/fade.js";
+import {  fadeout } from "../src/fade.js";
 
 var animationDetails = []
 const animations = {
-  'fadein' : fadein,
   'fadeout' : fadeout
 }
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,10 +25,10 @@ function findAnimationDetails(DOMelements) {
 function routeAnimation(currentDOMelement , classNameList){
   classNameList.forEach((className) => {
     try{
-      animations[className.split('-')[1].toLowerCase()](currentDOMelement, 3000);
+      animations[className.split('_')[1].toLowerCase()](currentDOMelement, 3000 , className.split('_'));
     }
     catch{
-      console.log(`no animations found for class name "${className.split('-')[1]}"` )
+      console.log(`no animations found for class name "${className.split('_')[1]}"` )
     }
   })
 }

@@ -1,25 +1,39 @@
-import { fadeIn } from '../src/fade';
+import { fadein, fadeout } from "../src/fade.js";
 
+var animationDetails = []
+const animations = {
+  'fadein' : fadein,
+  'fadeout' : fadeout
+}
 document.addEventListener('DOMContentLoaded', () => {
-  const animations = {
-    fadeIn
-  };
-  fadeIn('hello');
-  // Function to get all class names starting with a specific prefix
-  function getClassNamesWithPrefix(prefix) {
-    // Create a Set to store unique class names
-    const classNames = new Set();
-    // Get all the elements by their class name
-    const animationElements =  document.getElementsByClassName('oands');
-    for (let i = 0; i < animationElements.length; i++) {
-      const animationName = animationElements[i].classList[1] + "";
-      animations[animationName]('i');
-    }
-    // Convert the Set to an array
-    return [...classNames];
-  }
- 
-  // Example usage
-  const classNames = getClassNamesWithPrefix('oands');
-  console.log(classNames);  // Log the result to the console
+  const elements = document.querySelectorAll('[class*="oands"]');
+  findAnimationDetails(elements);
 });
+
+function findAnimationDetails(DOMelements) {
+  DOMelements.forEach((currentElement) => {
+    const classNameList = [];
+    for (let className of currentElement.classList) {
+      if (className.startsWith('oands')) {
+        classNameList.push(className);
+      }
+    }
+    animationDetails.push({'classNameList' : classNameList});
+    routeAnimation(currentElement , classNameList);
+  });
+}
+
+function routeAnimation(currentDOMelement , classNameList){
+  classNameList.forEach((className) => {
+    try{
+      animations[className.split('-')[1].toLowerCase()](currentDOMelement, 3000);
+    }
+    catch{
+      console.log(`no animations found for class name "${className.split('-')[1]}"` )
+    }
+  })
+}
+
+// function fadein(){
+//   console.log('redirected succewsfully')
+// }

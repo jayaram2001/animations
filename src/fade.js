@@ -1,19 +1,48 @@
+import { generateOpacityValues } from "./cubic-bizer";
 
-document.addEventListener('DOMContentLoaded', () => {
-let elements = document.getElementsByClassName('oands');
-fadeOut(elements[0] , 1000);
-function fadeOut(element , duration) {
-    element.style.opacity = 0;
-    intervel = duration/100;    
+export function fadeout(element , duration) {
+    let timing  = generateOpacityValues(0.000, 1.330, 1.000, 0.025);
+    console.log(timing[90])
+    element.style.opacity = 1;
+    let intervel = duration/100;    
+    let index = 0;
     const intervalID =  setInterval(() => {
-        console.log(element.style.opacity)
-        element.style.opacity = parseFloat(element.style.opacity) + 0.01;
-        if(element.style.opacity >= 1){
+        index += 1;
+        element.style.opacity = parseFloat(element.style.opacity) - timing[index];
+        if(element.style.opacity <= 0){
             clearInterval(intervalID)
         }    
-        console.log(intervel);
-    },intervel);
+    },intervel)
 };
+
+const element = document.querySelector('.box');
+const animationType = timingFunction1('ease-in-out');
+var duration = 3000;
+var delay = 3000; // Delay of 3 second
+
+function timingFunction1(animationType, p1x, p1y, p2x, p2y) {
+    switch (animationType) {
+        case 'ease':
+            return (t) => t < 0.5 ? (4 * t * t * t) : ((t - 1) * (2 * t - 2) * (2 * t - 2) + 1);
+        case 'ease-in':
+            return (t) => t * t;
+        case 'ease-out':
+            return (t) => t * (2 - t);
+        case 'ease-in-out':
+            return (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        case 'cubicBezier':
+            return cubicBezier(0.5, p1x, p1y, p2x, p2y);
+    }
+}
+
+function cubicBezier(t, p1x, p1y, p2x, p2y) {
+    const cX = 3 * p1x,
+        bX = 3 * (p2x - p1x) - cX,
+        aX = 1 - cX - bX;
+
+    const cY = 3 * p1y,
+        bY = 3 * (p2y - p1y) - cY,
+        aY = 1 - cY - bY;
 });
 
 const element = document.querySelector('[class^="oands-fadeIn"]');
@@ -148,4 +177,6 @@ function fadeIn(element, duration) {
     //     }
     //     requestAnimationFrame(animate); // Start the animation
     // }
+
+
 // }

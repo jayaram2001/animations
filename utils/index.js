@@ -1,38 +1,71 @@
-import {  fadeout } from "../src/fade.js";
+import { fadeout } from "../src/fade.js";
 
-var animationDetails = []
+// Array to hold animation details extracted from elements
+var animationDetails = [];
+
+// Map of available animations by their names
 const animations = {
-  'fadeout' : fadeout
-}
+  'fadeout': fadeout
+};
+
+// Event listener for DOMContentLoaded to initialize animation processing
 document.addEventListener('DOMContentLoaded', () => {
+  // Select all elements with class names containing "oands"
   const elements = document.querySelectorAll('[class*="oands"]');
+  // Process the selected elements to find and apply animations
   findAnimationDetails(elements);
 });
 
+/**
+ * Extracts animation details from the given DOM elements and routes the animations.
+ *
+ * @param {NodeList} DOMelements - A NodeList of DOM elements to process.
+ */
 function findAnimationDetails(DOMelements) {
   DOMelements.forEach((currentElement) => {
     const classNameList = [];
+    
+    // Collect class names starting with 'oands'
     for (let className of currentElement.classList) {
       if (className.startsWith('oands')) {
         classNameList.push(className);
       }
     }
-    animationDetails.push({'classNameList' : classNameList});
-    routeAnimation(currentElement , classNameList);
+    
+    // Store the class name list for the current element
+    animationDetails.push({ 'classNameList': classNameList });
+    
+    // Route animations based on class names
+    routeAnimation(currentElement, classNameList);
   });
 }
 
-function routeAnimation(currentDOMelement , classNameList){
+/**
+ * Routes the appropriate animation to be applied on the given element based on class names.
+ *
+ * @param {HTMLElement} currentDOMelement - The DOM element to which the animation will be applied.
+ * @param {string[]} classNameList - A list of class names associated with animations.
+ */
+function routeAnimation(currentDOMelement, classNameList) {
   classNameList.forEach((className) => {
-    try{
-      animations[className.split('_')[1].toLowerCase()](currentDOMelement, 3000 , className.split('_'));
+    try {
+      // Extract the animation name from the class name and apply it
+      const animationName = className.split('_')[1].toLowerCase();
+      const animationDuration = className.split('_')[2].toLowerCase() || 10000; 
+
+      if (animations[animationName]) {
+        animations[animationName](currentDOMelement, animationDuration, className.split('_'));
+      } else {
+        throw new Error(`Animation "${animationName}" not found`);
+      }
+    } catch (error) {
+      // Log an error if the animation is not found or any issue occurs
+      console.log(`Error: ${error.message}`);
     }
-    catch{
-      console.log(`no animations found for class name "${className.split('_')[1]}"` )
-    }
-  })
+  });
 }
 
-// function fadein(){
-//   console.log('redirected succewsfully')
+// Uncomment the function below to test redirection or other functionality
+// function fadein() {
+//   console.log('Redirected successfully');
 // }

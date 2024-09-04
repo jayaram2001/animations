@@ -51,8 +51,8 @@ function routeAnimation(currentDOMelement, classNameList) {
     try {
       // Extract the animation name from the class name and apply it
       const animationName = className.split('_')[1].toLowerCase();
-      const animationDuration = className.split('_')[2].toLowerCase() || 10000; 
-
+      const animationDuration = className.split('_')[2].toLowerCase() || 1000; 
+      console.log(className , className.split('_') , 'kil')
       if (animations[animationName]) {
         animations[animationName](currentDOMelement, animationDuration, className.split('_'));
       } else {

@@ -1,11 +1,12 @@
 import { fadeout } from "../src/fade.js";
-
+import { slidein } from "../src/slide.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
 // Map of available animations by their names
 const animations = {
-  'fadeout': fadeout
+  'fadeout' : fadeout,
+  'slidein' : slidein,
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing
@@ -52,7 +53,6 @@ function routeAnimation(currentDOMelement, classNameList) {
       // Extract the animation name from the class name and apply it
       const animationName = className.split('_')[1].toLowerCase();
       const animationDuration = className.split('_')[2].toLowerCase() || 1000; 
-      console.log(className , className.split('_') , 'kil')
       if (animations[animationName]) {
         animations[animationName](currentDOMelement, animationDuration, className.split('_'));
       } else {
@@ -60,7 +60,6 @@ function routeAnimation(currentDOMelement, classNameList) {
       }
     } catch (error) {
       // Log an error if the animation is not found or any issue occurs
-      console.log(`Error: ${error.message}`);
     }
   });
 }

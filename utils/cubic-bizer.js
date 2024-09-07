@@ -45,7 +45,6 @@ export function generateOpacityValues(p1x, p1y, p2x, p2y) {
         const easedValue = cubicBezier(t, p1x, p1y, p2x, p2y);
         values.push(easedValue);
     }
-    console.log(values , 'value' , p1x, p1y, p2x, p2y);
 
     // Normalize the values so that their sum equals 1
     const sum = values.reduce((acc, value) => acc + value, 0);
@@ -84,7 +83,6 @@ export function findAnimationTimingFunction(classNameList) {
             return className.includes(timing);
         });
     });
-    console.log(classNameList,timingClass);
 
     return timingClass ? timingClass : 'linear';
 }

@@ -1,5 +1,6 @@
 import { fadeout } from "../src/fade.js";
 import { slidein } from "../src/slide.js";
+import { slideout } from "../src/slide.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
@@ -7,6 +8,7 @@ var animationDetails = [];
 const animations = {
   'fadeout' : fadeout,
   'slidein' : slidein,
+  'slideout' : slideout
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

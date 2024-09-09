@@ -1,4 +1,5 @@
 import { fadeout } from "../src/fade.js";
+import { fadeIn } from "../src/fade.js";
 import { slidein } from "../src/slide.js";
 import { slideout } from "../src/slide.js";
 // Array to hold animation details extracted from elements
@@ -7,6 +8,7 @@ var animationDetails = [];
 // Map of available animations by their names
 const animations = {
   'fadeout' : fadeout,
+  'fadeIn' : fadeIn,
   'slidein' : slidein,
   'slideout' : slideout
 };

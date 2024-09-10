@@ -49,7 +49,7 @@ export function fadeout(element, duration, classNameList) {
  * @param {number} duration - Duration of the fade-in animation in milliseconds.
  * @param {Array<string>} classNameList - List of class names that may contain animation timing functions.
  */
-export function fadeIn(element, duration, classNameList) {
+export function fadein(element, duration, classNameList) {
     console.log("fadeIn");
     // Determine the appropriate animation timing function from the provided class names.
     let animationTimingFunction = findAnimationTimingFunction(classNameList);

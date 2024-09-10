@@ -1,5 +1,5 @@
 import { fadeout } from "../src/fade.js";
-import { fadeIn } from "../src/fade.js";
+import { fadein } from "../src/fade.js";
 import { slidein } from "../src/slide.js";
 import { slideout } from "../src/slide.js";
 import { bounceinright } from "../src/bounce.js";
@@ -11,7 +11,7 @@ var animationDetails = [];
 
 // Map of available animations by their names
 const animations = {
-  'fadeIn'         : fadeIn,
+  'fadein'         : fadein,
   'fadeout'        : fadeout,
   'slidein'        : slidein,
   'slideout'       : slideout,

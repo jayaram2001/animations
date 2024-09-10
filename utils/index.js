@@ -10,6 +10,8 @@ import { scalein } from "../src/scale.js";
 import { scaleout } from "../src/scale.js"
 import { scaleininfinite } from "../src/scale.js";
 import { scaleoutinfinite } from "../src/scale.js";
+import { rotateright } from "../src/rotate.js";
+import { rotateleft } from "../src/rotate.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
@@ -26,7 +28,9 @@ const animations = {
   'scalein'         : scalein,
   'scaleout'        : scaleout,
   'scaleininfinite' : scaleininfinite,
-  'scaleoutinfinite': scaleoutinfinite
+  'scaleoutinfinite': scaleoutinfinite,
+  'rotateright'    : rotateright,
+  'rotateleft'     : rotateleft
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

@@ -1,5 +1,8 @@
+import { findAnimationTimingFunction } from "../utils/cubic-bizer";
+
 // Function to create and run the animation
 export function bounceinright(element, duration, classNameList)  {
+
     const keyframes = [
       { opacity: 0, transform: 'translateX(100%)', offset: 0 },
       { opacity: 1, transform: 'translateX(-10%)', offset: 0.6 },
@@ -9,10 +12,9 @@ export function bounceinright(element, duration, classNameList)  {
   
     const options = {
       duration: parseFloat(duration), // Animation duration in milliseconds
-      easing: 'ease-out', // Easing function
+      easing: findAnimationTimingFunction(classNameList).replaceAll( '/' , ',' ), // Easing function
       fill: 'forwards' // Keeps the final state of the animation
     };
-  
     return element.animate(keyframes, options);
   }
   
@@ -26,10 +28,9 @@ export function bounceintop(element, duration, classNameList)  {
   
     const options = {
       duration: parseFloat(duration), // Animation duration in milliseconds
-      easing: 'ease-out', // Easing function
+      easing: findAnimationTimingFunction(classNameList).replaceAll( '/' , ',' ), // Easing function
       fill: 'forwards' // Keeps the final state of the animation
     };
-  
     return element.animate(keyframes, options);
   }
 
@@ -44,7 +45,7 @@ export function bounceinleft(element, duration, classNameList)  {
   
     const options = {
       duration: parseFloat(duration), // Animation duration in milliseconds
-      easing: 'ease-out', // Easing function
+      easing: findAnimationTimingFunction(classNameList).replaceAll( '/' , ',' ), // Easing function
       fill: 'forwards' // Keeps the final state of the animation
     };
   
@@ -61,9 +62,8 @@ export function bounceinbottom(element, duration, classNameList)  {
   
     const options = {
       duration: parseFloat(duration), // Animation duration in milliseconds
-      easing: 'ease-out', // Easing function
+      easing: findAnimationTimingFunction(classNameList).replaceAll( '/' , ',' ), // Easing function
       fill: 'forwards' // Keeps the final state of the animation
     };
-  
     return element.animate(keyframes, options);
   }

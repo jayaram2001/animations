@@ -78,6 +78,7 @@ export function extractCubicBezier(className) {
  */
 export function findAnimationTimingFunction(classNameList) {
     const timingClass = classNameList.find(className => {
+        console.log(className)
         // Find if any key in defaultAnimationTiming matches part of the class name
         return Object.keys(defaultAnimationTiming).find(timing => {
             return className.includes(timing);

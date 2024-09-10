@@ -1,24 +1,28 @@
 import { fadeout } from "../src/fade.js";
-import { fadeIn } from "../src/fade.js";
+import { fadein } from "../src/fade.js";
 import { slidein } from "../src/slide.js";
 import { slideout } from "../src/slide.js";
 import { bounceinright } from "../src/bounce.js";
 import { bounceintop } from "../src/bounce.js";
 import { bounceinleft } from "../src/bounce.js";
 import { bounceinbottom } from "../src/bounce.js";
+import { rotateright } from "../src/rotate.js";
+import { rotateleft } from "../src/rotate.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
 // Map of available animations by their names
 const animations = {
-  'fadeIn'         : fadeIn,
+  'fadein'         : fadein,
   'fadeout'        : fadeout,
   'slidein'        : slidein,
   'slideout'       : slideout,
   'bounceinright'  : bounceinright,
   'bounceintop'    : bounceintop,
-  'bounceinleft'   : bounceinleft ,
-  'bounceinbottom' : bounceinbottom
+  'bounceinleft'   : bounceinleft,
+  'bounceinbottom' : bounceinbottom,
+  'rotateright'    : rotateright,
+  'rotateleft'     : rotateleft
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

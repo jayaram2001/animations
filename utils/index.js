@@ -6,19 +6,27 @@ import { bounceinright } from "../src/bounce.js";
 import { bounceintop } from "../src/bounce.js";
 import { bounceinleft } from "../src/bounce.js";
 import { bounceinbottom } from "../src/bounce.js";
+import { scalein } from "../src/scale.js";
+import { scaleout } from "../src/scale.js"
+import { scaleininfinite } from "../src/scale.js";
+import { scaleoutinfinite } from "../src/scale.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
 // Map of available animations by their names
 const animations = {
-  'fadein'         : fadein,
-  'fadeout'        : fadeout,
-  'slidein'        : slidein,
-  'slideout'       : slideout,
-  'bounceinright'  : bounceinright,
-  'bounceintop'    : bounceintop,
-  'bounceinleft'   : bounceinleft ,
-  'bounceinbottom' : bounceinbottom
+  'fadein'          : fadein,
+  'fadeout'         : fadeout,
+  'slidein'         : slidein,
+  'slideout'        : slideout,
+  'bounceinright'   : bounceinright,
+  'bounceintop'     : bounceintop,
+  'bounceinleft'    : bounceinleft ,
+  'bounceinbottom'  : bounceinbottom,
+  'scalein'         : scalein,
+  'scaleout'        : scaleout,
+  'scaleininfinite' : scaleininfinite,
+  'scaleoutinfinite': scaleoutinfinite
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

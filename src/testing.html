@@ -5,12 +5,26 @@
     </title>
     <head>
         <script src="../dist/bundle.js"></script>
+        <style>
+            .test {
+                animation: testAnimation 3s ease-in forwards;
+            }
+
+            @keyframes testAnimation {
+                0% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(0.9);
+                }
+            }
+        </style>
     </head>
-    <body style="background-color: black;">
-        <div style="color: white">Fade-in</div>
-        <div class="oands_fadeIn_3000_cubic-bezier(0.91/0.11/0.91/0.11)" style="background-color: red; width: 100px; height: 100px"></div>
-        <!-- Slide-in
-        <div class="slideIn" style="background-color: red; width: 100px; height: 100px;"></div>
-        <script src="./slideIn.js"></script> -->
+    <body style="background-color: black; margin: 50px">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+            <div style="color: white">Scale-in</div>
+            <div class="oands_scaleoutinfinite_3000_cubic-bezier(0.91/0.11/0.91/0.11)" style="background-color: red; width: 100px; height: 100px"></div>
+            <div class="test" style="background-color: yellow; width: 100px; height: 100px;"></div>
+        </div>
     </body>
 </html>

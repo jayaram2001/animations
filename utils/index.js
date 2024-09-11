@@ -12,6 +12,7 @@ import { scaleininfinite } from "../src/scale.js";
 import { scaleoutinfinite } from "../src/scale.js";
 import { rotateright } from "../src/rotate.js";
 import { rotateleft } from "../src/rotate.js";
+import { rotatex0to360, rotatex360to0, rotatexinfinity, rotatey0to360, rotatey360to0, rotateyinfinity } from "../src/rotate3d.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
@@ -29,8 +30,14 @@ const animations = {
   'scaleout'        : scaleout,
   'scaleininfinite' : scaleininfinite,
   'scaleoutinfinite': scaleoutinfinite,
-  'rotateright'    : rotateright,
-  'rotateleft'     : rotateleft
+  'rotateright'     : rotateright,
+  'rotateleft'      : rotateleft,
+  'rotatex360to0'   : rotatex360to0,
+  'rotatex0to360'   : rotatex0to360,
+  'rotatey0to360'   : rotatey0to360,
+  'rotatey360to0'   : rotatey360to0,
+  'rotateyinfinity' : rotateyinfinity,
+  'rotatexinfinity' : rotatexinfinity,
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

@@ -13,6 +13,12 @@ import { scaleoutinfinite } from "../src/scale.js";
 import { rotateright } from "../src/rotate.js";
 import { rotateleft } from "../src/rotate.js";
 import { rotatex0to360, rotatex360to0, rotatexinfinity, rotatey0to360, rotatey360to0, rotateyinfinity } from "../src/rotate3d.js";
+import { flip } from "../src/flip.js";
+import { flipvertical } from "../src/flip.js";
+import { shakevertical } from "../src/shake.js";
+import { shakehorizontal } from "../src/shake.js";
+import { shakewobble } from "../src/shake.js";
+import { shake } from "../src/shake.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
@@ -38,6 +44,12 @@ const animations = {
   'rotatey360to0'   : rotatey360to0,
   'rotateyinfinity' : rotateyinfinity,
   'rotatexinfinity' : rotatexinfinity,
+  'flip'            : flip,
+  'flipvertical'    : flipvertical,
+  'shakevertical'   : shakevertical,
+  'shakehorizontal' : shakehorizontal,
+  'shake'           : shake,
+  'shakewobble'     : shakewobble
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

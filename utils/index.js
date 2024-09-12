@@ -20,6 +20,7 @@ import { shakehorizontal } from "../src/shake.js";
 import { shakewobble } from "../src/shake.js";
 import { shake } from "../src/shake.js";
 import { swing } from "../src/swing.js";
+import { wobble } from "../src/wobble.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
@@ -51,7 +52,8 @@ const animations = {
   'shakehorizontal' : shakehorizontal,
   'shake'           : shake,
   'shakewobble'     : shakewobble,
-  'swing'           : swing
+  'swing'           : swing,
+  'wobble'          : wobble
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

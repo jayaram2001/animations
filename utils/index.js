@@ -25,6 +25,7 @@ import { rubberBand } from "../src/rubberband.js";
 import { fancySlide } from "../src/fancyslide.js";
 import { fancySlideReverse } from "../src/fancyslide.js";
 import { jelloAnimation } from "../src/jello.js";
+import { wobble } from "../src/wobble.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
@@ -62,6 +63,7 @@ const animations = {
   'fancyslide'      : fancySlide,
   'fancyslidereverse': fancySlideReverse,
   'jelloanimation'  : jelloAnimation
+  'wobble'          : wobble
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

@@ -20,6 +20,11 @@ import { shakehorizontal } from "../src/shake.js";
 import { shakewobble } from "../src/shake.js";
 import { shake } from "../src/shake.js";
 import { swing } from "../src/swing.js";
+import { pulse } from "../src/pulse.js";
+import { rubberBand } from "../src/rubberband.js";
+import { fancySlide } from "../src/fancyslide.js";
+import { fancySlideReverse } from "../src/fancyslide.js";
+import { jelloAnimation } from "../src/jello.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
@@ -51,7 +56,12 @@ const animations = {
   'shakehorizontal' : shakehorizontal,
   'shake'           : shake,
   'shakewobble'     : shakewobble,
-  'swing'           : swing
+  'swing'           : swing,
+  'pulse'           : pulse,
+  'rubberband'      : rubberBand,
+  'fancyslide'      : fancySlide,
+  'fancyslidereverse': fancySlideReverse,
+  'jelloanimation'  : jelloAnimation
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing

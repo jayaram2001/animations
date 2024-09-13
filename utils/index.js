@@ -26,11 +26,15 @@ import { fancySlide } from "../src/fancyslide.js";
 import { fancySlideReverse } from "../src/fancyslide.js";
 import { jelloAnimation } from "../src/jello.js";
 import { wobble } from "../src/wobble.js";
+import { skewinfinite, skewleft, skewright } from "../src/skew.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
 // Map of available animations by their names
 const animations = {
+  'skewleft'        : skewleft,
+  'skewright'       : skewright,
+  'skewinfinite'    : skewinfinite,
   'fadein'          : fadein,
   'fadeout'         : fadeout,
   'slidein'         : slidein,
@@ -62,7 +66,7 @@ const animations = {
   'rubberband'      : rubberBand,
   'fancyslide'      : fancySlide,
   'fancyslidereverse': fancySlideReverse,
-  'jelloanimation'  : jelloAnimation
+  'jelloanimation'  : jelloAnimation,
   'wobble'          : wobble
 };
 

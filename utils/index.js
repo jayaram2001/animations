@@ -27,11 +27,14 @@ import { fancySlideReverse } from "../src/fancyslide.js";
 import { jelloAnimation } from "../src/jello.js";
 import { wobble } from "../src/wobble.js";
 import { skewinfinite, skewleft, skewright } from "../src/skew.js";
+import { rollin, rollout } from "../src/roll.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
 // Map of available animations by their names
 const animations = {
+  'rollin'          : rollin,
+  'rollout'         : rollout,
   'skewleft'        : skewleft,
   'skewright'       : skewright,
   'skewinfinite'    : skewinfinite,

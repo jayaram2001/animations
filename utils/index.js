@@ -26,6 +26,10 @@ import { fancySlide } from "../src/fancyslide.js";
 import { fancySlideReverse } from "../src/fancyslide.js";
 import { jelloAnimation } from "../src/jello.js";
 import { wobble } from "../src/wobble.js";
+import { rollInAnimation } from "../src/roll.js";
+import { rollOutAnimation } from "../src/roll.js";
+import { blindsUpAnimation } from "../src/binds.js";
+import { blindsDownAnimation } from "../src/binds.js";
 // Array to hold animation details extracted from elements
 var animationDetails = [];
 
@@ -62,8 +66,12 @@ const animations = {
   'rubberband'      : rubberBand,
   'fancyslide'      : fancySlide,
   'fancyslidereverse': fancySlideReverse,
-  'jelloanimation'  : jelloAnimation
-  'wobble'          : wobble
+  'jelloanimation'  : jelloAnimation,
+  'rollinanimation' : rollInAnimation,
+  'rolloutanimation': rollOutAnimation,
+  'blindsupanimation': blindsUpAnimation,
+  'wobble'          : wobble,  
+  'blindsdownanimation' : blindsDownAnimation
 };
 
 // Event listener for DOMContentLoaded to initialize animation processing
